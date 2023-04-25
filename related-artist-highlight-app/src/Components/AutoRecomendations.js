@@ -33,8 +33,8 @@ export const AutoRecomendations = ({ usersTopArtists, accessToken }) => {
                                 <Card.Title  key={'cardTitle' + artistItem.name} className='text-center m-3'>
                                     {artistItem.name}
                                 </Card.Title>
-                                <Card.Img key={'cardImg' + artistItem.name} className='mx-auto' style={{width: '50%', height: '50%'}} src={artistItem.images[0].url} alt='album art'/>
-                                <Card.Footer key={'cardFoot' + artistItem.name} className='m-2' style={{textAlign: 'left'}}>
+                                <Card.Img key={'cardImg' + artistItem.name} className='mx-auto card-img-formatting' src={artistItem.images[0].url} alt='album art'/>
+                                <Card.Footer key={'cardFoot' + artistItem.name} className='m-2 card-footer-formatting'>
                                     This artist is related to {usersTopArtists[index].name}
                                 </Card.Footer>
                             </Card>

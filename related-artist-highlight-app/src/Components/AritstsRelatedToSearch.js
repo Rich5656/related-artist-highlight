@@ -15,13 +15,9 @@ export const AritstsRelatedToSearch = ({ returnedSearchArists, clickedOnArtistNa
                     <Card.Title  key={'cardTitle' + artistItem.name} className='text-center m-3'>
                         {artistItem.name}
                     </Card.Title>
-                    <Card.Img key={'cardImg' + artistItem.name} className='mx-auto' style={{width: '50%', height: '50%'}} src={artistItem.images[0].url} alt='album art'/>
-                    {/* <Card.Body>
-                        <Card.Text style={{textAlign: 'left'}}>This artist is related to {clickedOnArtistName}</Card.Text>
-                    </Card.Body> */}
-                    <Card.Footer key={'cardFoot' + artistItem.name} className='m-2' style={{textAlign: 'left'}}>
+                    <Card.Img key={'cardImg' + artistItem.name} className='mx-auto card-img-formatting' src={artistItem.images[0].url} alt='album art'/>
+                    <Card.Footer key={'cardFoot' + artistItem.name} className='m-2 card-footer-formatting'>
                         Genres: {genresArray.splice(0, 4).join(', ')}
-                        {/* This artist is related to {clickedOnArtistName} */}
                     </Card.Footer>
                 </Card>
             </Col>
@@ -31,11 +27,11 @@ export const AritstsRelatedToSearch = ({ returnedSearchArists, clickedOnArtistNa
 
     return (
         <>
-            <div className='p-3 m-3 text-center align-items-center justify-content-center' style={{marginBottom: '10px'}}>
+            <div className='p-3 m-3 text-center align-items-center justify-content-center'>
                 <Row>
                     {renderRetrunedSearchAritsts()}
                 </Row>
-                <p className='m-4 p-3' style={{color: '#a0e0f2'}}>Search results are randomly generated from 7 related artists with the lowest popularity ratings. If you serach the same artist again
+                <p className='m-4 p-3 search-information-text'>Search results are randomly generated from 7 related artists with the lowest popularity ratings. If you serach the same artist again
                     you will likely get some different reccomendations.
                 </p>
             </div>

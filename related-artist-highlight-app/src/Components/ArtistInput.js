@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { AritstsRelatedToSearch } from './AritstsRelatedToSearch';
+import React from 'react';
 
 export const ArtistInput = ({ setArtistSearch, searchResults, fetchSearch, renderDropdown }) => {
     // className='d-flex justify-content-right align-items-right mx-3'
@@ -13,12 +12,12 @@ export const ArtistInput = ({ setArtistSearch, searchResults, fetchSearch, rende
                 </div>
                 {searchResults.length !== 0 ?
                 <div className='position-absolute mx-3 mt-1 p-2 bg-black shadow-lg rounded-3 overflow-y-auto'> 
-                    <ul className='m-0 p-0' style={{listStyleType: 'none'}}>
+                    <ul className='m-0 p-0'>
                         {renderDropdown()}
                     </ul>   
                 </div> :
                 null}
             </div>       
         </>
- )
+    )
 }

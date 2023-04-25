@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from './useAuth';
 import { Footer } from './Footer';
 import { AutoRecomendations } from './AutoRecomendations';
-import SpotifyWebApi from 'spotify-web-api-node';
 import { Header } from './Header';
 import { AritstsRelatedToSearch } from './AritstsRelatedToSearch';
 import axios from 'axios';
@@ -81,7 +80,7 @@ export const Dashboard = ({ code }) => {
     return (
         <>
             <div className='main-style'>
-                <Header spotifyApi={spotifyApi} artistSearch={artistSearch} setArtistSearch={setArtistSearch} 
+                <Header artistSearch={artistSearch} setArtistSearch={setArtistSearch} 
                 fetchSearch={fetchSearch} renderDropdown={renderDropdown} searchResults={searchResults}
                 />
             </div>
@@ -89,7 +88,7 @@ export const Dashboard = ({ code }) => {
                 <div className='d-flex main-style w-75 justify-content-center align-items-center'>
                     <div>   
                         <div className='d-flex text-center justify-content-center align-items-center'>
-                            <p className='m-5 w-50' style={{fontSize: '120%'}}>Discover some lesser-known artist that are similar to your favorites! You can explore some of the automatically-generated higlights below
+                            <p className='m-5 w-50 introduction-paragraph' >Discover some lesser-known artist that are similar to your favorites! You can explore some of the automatically-generated higlights below
                             (based on your current favorite artists), or search for reccomendations of any artist of your choice.
                             </p>
                         </div>  

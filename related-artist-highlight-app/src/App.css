@@ -13,6 +13,18 @@ h3 {
   font-family: 'Roboto'; 
 }
 
+.introduction-paragraph {
+  font-size: 120%;
+}
+
+ul {
+  list-style: none;
+}
+
+.search-information-text {
+  color: #a0e0f2;
+}
+
 .card-style {
   background-color: #2b2b2b !important;
   color: white !important;
@@ -21,6 +33,15 @@ h3 {
   
 .card-style:hover { 
   transform: scale(1.1); 
+}
+
+.card-img-formatting {
+  height: 50%;
+  padding: 10px;
+}
+
+.card-footer-formatting {
+  text-align: left;
 }
 
 /* dropdown z-indexs */
