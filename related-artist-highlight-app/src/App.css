@@ -35,12 +35,6 @@ ul {
   transform: scale(1.1); 
 }
 
-.card-img-formatting {
-  height: 50%;
-  width: 80%;
-  padding: 10px;
-}
-
 .card-footer-formatting {
   text-align: left;
   vertical-align: middle;

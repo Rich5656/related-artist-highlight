@@ -3,8 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-export const AritstsRelatedToSearch = ({ returnedSearchArists, clickedOnArtistName }) => {
-    console.log('rendering artist cards: ', returnedSearchArists)
+export const AritstsRelatedToSearch = ({ returnedSearchArists }) => {
     // function for rendering the three related artists cards
     const renderRetrunedSearchAritsts = () => {
     return returnedSearchArists.map((artistItem, index) => {
@@ -15,7 +14,7 @@ export const AritstsRelatedToSearch = ({ returnedSearchArists, clickedOnArtistNa
                     <Card.Title  key={'cardTitle' + artistItem.name} className='text-center m-3'>
                         {artistItem.name}
                     </Card.Title>
-                    <Card.Img key={'cardImg' + artistItem.name} className='card-img-formatting p-4 p-md-3' src={artistItem.images[0].url} alt='album art'/>
+                    <Card.Img key={'cardImg' + artistItem.name} className='p-4 p-md-3' src={artistItem.images[0].url} alt='album art'/>
                     <Card.Footer key={'cardFoot' + artistItem.name} className='m-2 p-0 pt-2 card-footer-formatting'>
                         Genres: {genresArray.splice(0, 4).join(', ')}
                     </Card.Footer>

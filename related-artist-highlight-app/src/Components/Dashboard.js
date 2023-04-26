@@ -10,21 +10,19 @@ export const Dashboard = ({ code }) => {
     // state compnoents
     const [ usersTopArtists, setUsersTopArtists ] = useState([]);
     const [ artistSearch, setArtistSearch ] = useState('');
-    // state components that are set in ArtistInput and used in DisplaySearchResults
     const [ searchResults, setSearchResults ] = useState([]);
     const [ returnedSearchArists, setReturnedSearchArtists ] = useState([]);
-    const [ clickedOnArtistName, setClickedOnArtistName ] = useState('');
 
-    console.log(searchResults);
-    // setting up api and setting access token
+
+
+    // setting access token to pass to back end for API calls
     const accessToken = useAuth(code);
-    // setting access token
-    // spotifyApi.setAccessToken(accessToken);
+    
 
     useEffect(() => {
         if (!accessToken) return; 
 
-        // getting top 3 or fewer if available are avilable
+        // getting top 3 artists or fewer if fewer are avilable
         axios.post('http://localhost:3001/topArtists', { accessToken })
             .then(res => {
                 setUsersTopArtists(res.data.topArtistsArray);
@@ -37,7 +35,6 @@ export const Dashboard = ({ code }) => {
 
     // API query to get top 5 artists matching the user's search so they can choose the correct one
     const fetchSearch = (event) => {
-        console.log('fetch Search is running: ')
         if (artistSearch.length === 0) {
             setSearchResults([]);
             return;
@@ -53,8 +50,7 @@ export const Dashboard = ({ code }) => {
 
     
     const renderDropdown = () => {
-        console.log('RenderDropdown is running: ', searchResults)
-        // make sure no serach results are rendered when it is empty
+        // make sure no search results are rendered when there are no results
         if (searchResults.length === 0) return;
 
         // rendering the top five search results in dropdown so the user can pick the correct one if it is not the first result
@@ -68,9 +64,6 @@ export const Dashboard = ({ code }) => {
         
         // Clearing the dropdown menu
         setSearchResults([]);
-
-        //setting the clicked on artists name
-        setClickedOnArtistName(name);
 
         axios.post('http://localhost:3001/relatedArtists', { id, accessToken })
             .then(res => setReturnedSearchArtists(res.data.relatedArtistsResults))
@@ -96,7 +89,9 @@ export const Dashboard = ({ code }) => {
                         <h3>Search Results:</h3>
                         {
                         returnedSearchArists.length !== 0 ? 
-                        <AritstsRelatedToSearch returnedSearchArists={returnedSearchArists} clickedOnArtistName={clickedOnArtistName}/> : 
+                        // render the display when serach results have been returned
+                        <AritstsRelatedToSearch returnedSearchArists={returnedSearchArists}/> :
+                        // else render text advising use of search functionality 
                         <h5 className='text-center p-3'>Search an artist and checkout some artist that are related!</h5>
                         } 
                         <Footer/>
