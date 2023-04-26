@@ -23,18 +23,18 @@ export const AutoRecomendations = ({ usersTopArtists, accessToken }) => {
 
     // console.log(relatedArtists, usersTopArtists, spotifyApi)
   return (
-    <div className='pt-1 p-3 mt-1 m-3 text-center align-items-center justify-content-center' style={{marginBottom: '10px'}}>
-        <Row>
+    <div className='pt-1 p-3 mt-1 m-3 text-center align-items-center justify-content-center'>
+        <Row className='justify-content-center'>
             {relatedArtists.length !== 0 ? (
                 relatedArtists.map((artistItem, index) => {
                     return (
-                        <Col className='d-flex align-items-stretch' key={'col' + artistItem.name}>
-                            <Card className='card-style w-100 h-100'> 
-                                <Card.Title  key={'cardTitle' + artistItem.name} className='text-center m-3'>
+                        <Col className='d-flex align-items-center col-12 col-md-4' key={'col' + artistItem.name}>
+                            <Card className='card-style w-100 h-90 mb-4 justify-content-center'> 
+                                <Card.Title  key={'cardTitle' + artistItem.name} className='text-center m-2'>
                                     {artistItem.name}
                                 </Card.Title>
-                                <Card.Img key={'cardImg' + artistItem.name} className='mx-auto card-img-formatting' src={artistItem.images[0].url} alt='album art'/>
-                                <Card.Footer key={'cardFoot' + artistItem.name} className='m-2 card-footer-formatting'>
+                                <Card.Img key={'cardImg' + artistItem.name} className='card-img-formatting p-4 p-md-3' src={artistItem.images[0].url} alt='album art'/>
+                                <Card.Footer key={'cardFoot' + artistItem.name} className='m-2 p-0 pt-2 card-footer-formatting'>
                                     This artist is related to {usersTopArtists[index].name}
                                 </Card.Footer>
                             </Card>
