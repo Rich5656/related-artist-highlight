@@ -3,7 +3,7 @@
 Related Artist Highlight is an application built with React.js that is __*designed to help users find lesser-known artists that are similar to their current favorites.*__ It allows a user to log in with their Spotify account and immediately get automated recommendations that are related to their most-listened to artists. There is also search functionality that returns lesser-known artists that are related to the artist the user searched.  Each recommendation displays the band's name, a photo, and some of the genres of music that the band is associated with.
 
 ## Demo :movie_camera:
-![GIF Demo](https://github.com/Rich5656/nutrition-app/blob/main/nutrition-app-video.gif)
+![GIF Demo](https://github.com/Rich5656/related-artist-highlight/blob/main/related-artist-highlight-demo.gif)
 
 ## Functionality :wrench:
 - __OAuth:__ This app uses a redirect URI to allow users to securely log in to their Shopify accounts for authentication, and then redirects them back to the application with access granted to the requested scopes (only their most listened to artists for this app).

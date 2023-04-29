@@ -41,9 +41,7 @@ export const AutoRecomendations = ({ usersTopArtists, accessToken }) => {
                         })
                 ) : (
                     // Render text if no data was returned
-                    // <Fade right>
                         <h1>Sorry, no data is avilable</h1>
-                    // </Fade>
                 )
                 }
             </Row>

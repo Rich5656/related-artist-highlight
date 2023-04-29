@@ -9,8 +9,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json())
 
-// const spotifyAPI = new SpotifyWebApi({})
-
 // refresh authToken
 app.post('/refresh', (req, res) => {
     const refreshToken = req.body.refreshToken;
