@@ -59,7 +59,6 @@ app.post('/login', (req, res) => {
 app.post('/topArtists', (req, res) => {
     const accessToken = req.body.accessToken;
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: 'http://localhost:3000',
         clientId: process.env.SPOTIFY_ID, 
         clientSecret: process.env.SPOTIFY_SECRET, 
     });
@@ -93,7 +92,6 @@ app.post('/relatedToTopArtists', (req, res) => {
     const accessToken = req.body.accessToken;
     const usersTopArtists = req.body.usersTopArtists;
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: 'http://localhost:3000',
         clientId: process.env.SPOTIFY_ID, 
         clientSecret: process.env.SPOTIFY_SECRET, 
     });
@@ -119,13 +117,10 @@ app.post('/relatedToTopArtists', (req, res) => {
 });
 
 
-
-
 app.post('/searchArtist', (req, res) => {
     const accessToken = req.body.accessToken;
     const artistSearch = req.body.artistSearch;
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: 'http://localhost:3000',
         clientId: process.env.SPOTIFY_ID, 
         clientSecret: process.env.SPOTIFY_SECRET, 
     });
@@ -152,7 +147,6 @@ app.post('/relatedArtists', (req, res) => {
     const accessToken = req.body.accessToken;
     const id = req.body.id;
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: 'http://localhost:3000',
         clientId: process.env.SPOTIFY_ID, 
         clientSecret: process.env.SPOTIFY_SECRET, 
     });
@@ -180,8 +174,6 @@ app.post('/relatedArtists', (req, res) => {
             res.json({
                 relatedArtistsResults: Array.from(randomResults.values())
             });
-            // reutning the 3 lowest O(n) for the array conversion
-            // setReturnedSearchArtists(Array.from(randomResults.values()));
         })       
         .catch(err => {
             console.log(err);
@@ -190,4 +182,4 @@ app.post('/relatedArtists', (req, res) => {
 });
 
 
-app.listen(3001)
+app.listen(3001);

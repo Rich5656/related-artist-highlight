@@ -34,7 +34,7 @@ export const AritstsRelatedToSearch = ({ returnedSearchArists }) => {
                     </Row>
                 </Fade>
                 <p className='m-4 p-3 search-information-text'>Search results are randomly generated from 7 related artists with the lowest popularity ratings. If you serach the same artist again
-                    you will likely get some different reccomendations.
+                    you will likely get some different recommendations.
                 </p>
             </div>
         </>

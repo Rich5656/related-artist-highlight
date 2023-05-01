@@ -21,19 +21,29 @@ export const useAuth = (code) => {
     dataAuthFetchedRef.current = true;
     
     // run the spotify request to obtain access tokens etc. 
-    axios.post('http://localhost:3001/login', {
-        code,
-    })
-    .then(res => {
-        setAccessToken(res.data.accessToken);
-        setRefreshToken(res.data.refreshToken);
-        setExpiresIn(res.data.expiresIn);
-        window.history.pushState({}, null, '/');
-    })
-    .catch((err) => {
-        // console.log(err);
-        window.location = '/';
-    })
+    fetch(`/.netlify/functions/login?code=${code}`)
+        .then(res => {
+            setAccessToken(res.data.accessToken);
+            setRefreshToken(res.data.refreshToken);
+            setExpiresIn(res.data.expiresIn);
+            window.history.pushState({}, null, '/');
+        })
+        .catch((err) => {
+            window.location = '/';
+        })
+
+    // axios.post('http://localhost:3001/login', {
+    //     code,
+    // })
+    // .then(res => {
+    //     setAccessToken(res.data.accessToken);
+    //     setRefreshToken(res.data.refreshToken);
+    //     setExpiresIn(res.data.expiresIn);
+    //     window.history.pushState({}, null, '/');
+    // })
+    // .catch((err) => {
+    //     window.location = '/';
+    // })
   }, [code])
 
 
@@ -44,8 +54,12 @@ export const useAuth = (code) => {
 
     const interval = setInterval(() => {
         // run the spotify request to obtain access tokens etc. 
-        axios.post('http://localhost:3001/refresh', {
-            refreshToken,
+        fetch('/.netlify/functions/refresh', {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify({refreshToken: refreshToken})
         })
         .then(res => {
             setAccessToken(res.data.accessToken);
