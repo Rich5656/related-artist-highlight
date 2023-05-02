@@ -1,8 +1,7 @@
 const SpotifyWebApi = require('spotify-web-api-node');
-const axios = require('axios');
 
 exports.handler = async (event) => {
-
+    console.log(event);
     // const code = req.body.code;
     const code = event.queryStringParameters.code;
     const spotifyApi = new SpotifyWebApi({
@@ -19,6 +18,7 @@ exports.handler = async (event) => {
     //         body: JSON.stringify(data)
     //     }
     // }
+    
     return spotifyApi.authorizationCodeGrant(code)
         .then(data => {
             return {

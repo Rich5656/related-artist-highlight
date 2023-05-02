@@ -23,9 +23,9 @@ export const useAuth = (code) => {
     // run the spotify request to obtain access tokens etc. 
     fetch(`/.netlify/functions/login?code=${code}`)
         .then(res => {
-            setAccessToken(res.data.accessToken);
-            setRefreshToken(res.data.refreshToken);
-            setExpiresIn(res.data.expiresIn);
+            setAccessToken(res.body.accessToken);
+            setRefreshToken(res.body.refreshToken);
+            setExpiresIn(res.body.expiresIn);
             window.history.pushState({}, null, '/');
         })
         .catch((err) => {
@@ -62,8 +62,8 @@ export const useAuth = (code) => {
             body: JSON.stringify({refreshToken: refreshToken})
         })
         .then(res => {
-            setAccessToken(res.data.accessToken);
-            setExpiresIn(res.data.expiresIn);
+            setAccessToken(res.body.accessToken);
+            setExpiresIn(res.body.expiresIn);
         })
         .catch(() => {
             window.location = '/';
