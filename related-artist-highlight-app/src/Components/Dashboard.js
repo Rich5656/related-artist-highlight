@@ -43,12 +43,17 @@ export const Dashboard = ({ code }) => {
             return;
         }
         event.preventDefault();
-
-        axios.post('http://localhost:3001/searchArtist', { artistSearch, accessToken })
-            .then(res => {
-                setSearchResults(res.data.topFive);
-            })
-            .catch(err => console.log(err));
+        
+        fetch('/.netlify/functions/searchArtist', {
+            method: 'POST',
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({artistSearch, accessToken})
+        })
+            .then(res => res.json())
+            .then(res => setSearchResults(res.topFive))
+            .catch(err => console.log(err))
     };
 
     
@@ -68,9 +73,16 @@ export const Dashboard = ({ code }) => {
         // Clearing the dropdown menu
         setSearchResults([]);
 
-        axios.post('http://localhost:3001/relatedArtists', { id, accessToken })
-            .then(res => setReturnedSearchArtists(res.data.relatedArtistsResults))
-            .catch(err => console.log(err));
+        fetch('/.netlify/functions/relatedArtists', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({id , accessToken})
+        })
+        // axios.post('http://localhost:3001/relatedArtists', { id, accessToken })
+        //     .then(res => setReturnedSearchArtists(res.data.relatedArtistsResults))
+        //     .catch(err => console.log(err));
     }
 
     return (
