@@ -16,19 +16,23 @@ export const Dashboard = ({ code }) => {
 
     // setting access token to pass to back end for API calls
     const accessToken = useAuth(code);
-    
 
     useEffect(() => {
         if (!accessToken) return; 
 
         // getting top 3 artists or fewer if fewer are avilable
-        axios.post('http://localhost:3001/topArtists', { accessToken })
-            .then(res => {
-                setUsersTopArtists(res.data.topArtistsArray);
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        fetch('/.netlify/functions/topArtists', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({accessToken: accessToken})
+        })
+        .then(res => res.json())
+        .then(res => {
+            setUsersTopArtists(res.topArtistsArray)
+        })
+        .catch(err => console.log(err));
     }, [accessToken])
 
 

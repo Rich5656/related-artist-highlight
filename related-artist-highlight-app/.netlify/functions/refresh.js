@@ -1,36 +1,28 @@
 const SpotifyWebApi = require('spotify-web-api-node');
 
 exports.handler = async (event) => {
-    const refreshToken = event.body.refreshToken;
+    const bodyData = JSON.parse(event.body)
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: 'http://localhost:3000',
+        redirectUri: 'http://localhost:8888',
         clientId: process.env.SPOTIFY_ID, 
         clientSecret: process.env.SPOTIFY_SECRET, 
-        refreshToken
+        refreshToken: bodyData.refreshToken
     });
 
-    return spotifyApi.refreshAccessToken()  
-        .then(data => {
-            return {
-                statusCode: 200,
-                body: JSON.stringify({
-                    accessToken: data.body.accessToken,
-                    expiresIn: data.body.expiresIn
-                }) 
-            };   
-        })
-        .catch(err => {
-            const { status, statusText, headers, data } = err.response;
-            return {
-                statusCode: 400,
-                body: JSON.stringify(status, statusText, headers, data)
-            }
-        })
-}
-
-
-
-
-
-    
+    try {
+        const data = await spotifyApi.refreshAccessToken();
+        
+        return {
+            statusCode: 200,
+            body: JSON.stringify({
+                accessToken: data.body.accessToken,
+                expiresIn: data.body.expiresIn
+            }) 
+        };
+    } catch (err) {
+        return {
+            statusCode: 400,
+            body: JSON.stringify({err})
+        }
+    }
 }

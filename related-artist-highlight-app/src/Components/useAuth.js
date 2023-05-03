@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
 
 // function to return the accessToken to the dashboard
 export const useAuth = (code) => {
@@ -13,7 +12,6 @@ export const useAuth = (code) => {
   const [ expiresIn, setExpiresIn ] = useState('');
 
 
-  
   // Initial Auth useEffect   
   useEffect(() => {
     // check if data has already been fetched and if false, the ref to true so this can't run twice
@@ -22,28 +20,18 @@ export const useAuth = (code) => {
     
     // run the spotify request to obtain access tokens etc. 
     fetch(`/.netlify/functions/login?code=${code}`)
+        .then(res => res.json())
         .then(res => {
-            setAccessToken(res.body.accessToken);
-            setRefreshToken(res.body.refreshToken);
-            setExpiresIn(res.body.expiresIn);
+            setAccessToken(res.accessToken);
+            setRefreshToken(res.refreshToken);
+            setExpiresIn(res.expiresIn);
             window.history.pushState({}, null, '/');
         })
         .catch((err) => {
+            console.log(err)
             window.location = '/';
         })
 
-    // axios.post('http://localhost:3001/login', {
-    //     code,
-    // })
-    // .then(res => {
-    //     setAccessToken(res.data.accessToken);
-    //     setRefreshToken(res.data.refreshToken);
-    //     setExpiresIn(res.data.expiresIn);
-    //     window.history.pushState({}, null, '/');
-    // })
-    // .catch((err) => {
-    //     window.location = '/';
-    // })
   }, [code])
 
 
@@ -61,9 +49,10 @@ export const useAuth = (code) => {
             },
             body: JSON.stringify({refreshToken: refreshToken})
         })
+        .then(res => res.json())
         .then(res => {
-            setAccessToken(res.body.accessToken);
-            setExpiresIn(res.body.expiresIn);
+            setAccessToken(res.accessToken);
+            setExpiresIn(res.expiresIn);
         })
         .catch(() => {
             window.location = '/';

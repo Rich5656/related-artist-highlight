@@ -2,7 +2,7 @@ import React from 'react';
 import Fade from 'react-reveal/Fade'
 import { Container } from 'react-bootstrap';
 
-const AUTH_URL = 'https://accounts.spotify.com/authorize?client_id=f124335254b9413f9008b34cb5f1b4c9&response_type=code&redirect_uri=http://localhost:3000&scope=user-top-read'; 
+const AUTH_URL = 'https://accounts.spotify.com/authorize?client_id=f124335254b9413f9008b34cb5f1b4c9&response_type=code&redirect_uri=http://localhost:8888&scope=user-top-read'; 
 
 export const Login = () => {
   return (
