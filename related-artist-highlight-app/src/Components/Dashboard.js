@@ -4,8 +4,7 @@ import { Footer } from './Footer';
 import { AutoRecomendations } from './AutoRecomendations';
 import { Header } from './Header';
 import { AritstsRelatedToSearch } from './AritstsRelatedToSearch';
-import axios from 'axios';
-import Pulse from 'react-reveal/Pulse';
+// import Pulse from 'react-reveal/Pulse';
 
 export const Dashboard = ({ code }) => {
     // state compnoents
@@ -82,9 +81,6 @@ export const Dashboard = ({ code }) => {
         })
             .then(res => res.json())
             .then(res => setReturnedSearchArtists(res.relatedArtistsResults))
-        // axios.post('http://localhost:3001/relatedArtists', { id, accessToken })
-        //     .then(res => setReturnedSearchArtists(res.data.relatedArtistsResults))
-        //     .catch(err => console.log(err));
     }
 
     return (
@@ -98,11 +94,11 @@ export const Dashboard = ({ code }) => {
                 <div className='d-flex main-style w-75 justify-content-center align-items-center'>
                     <div>   
                         <div className='d-flex text-center justify-content-center align-items-center'>
-                            <Pulse>
+                            {/* <Pulse> */}
                                 <p className='m-5 w-90 introduction-paragraph'>Discover some lesser-known artist that are similar to your favorites! You can explore some of the automatically-generated higlights below
                                 (based on your current favorite artists), or search for reccomendations of any artist of your choice.
                                 </p>
-                            </Pulse>
+                            {/* </Pulse> */}
                         </div>  
                         <AutoRecomendations usersTopArtists={usersTopArtists} accessToken={accessToken} />
                         <h3>Search Results:</h3>
