@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
-// import Fade from 'react-reveal/Fade';
 
 // Compoonent to display the 3 auto recommendations based on the user's favorite artists
 export const AutoRecomendations = ({ usersTopArtists, accessToken }) => {
@@ -27,8 +26,7 @@ export const AutoRecomendations = ({ usersTopArtists, accessToken }) => {
 
   return (
     <div className='pt-1 p-3 mt-1 m-3 text-center align-items-center justify-content-center'>
-        {/* <Fade right> */}
-            <Row className='justify-content-center'>
+            <Row className='justify-content-center fade-in-from-right'>
                 {relatedArtists.length !== 0 ? (
                     // display the related artists if there are results returned
                     relatedArtists.map((artistItem, index) => {
@@ -49,10 +47,8 @@ export const AutoRecomendations = ({ usersTopArtists, accessToken }) => {
                 ) : (
                     // Render text if no data was returned
                         <h1>Sorry, no data is avilable</h1>
-                )
-                }
+                )}
             </Row>
-        {/* </Fade> */}
     </div>
   )
 }
