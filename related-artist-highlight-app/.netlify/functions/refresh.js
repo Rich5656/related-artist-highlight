@@ -3,7 +3,7 @@ const SpotifyWebApi = require('spotify-web-api-node');
 exports.handler = async (event) => {
     const bodyData = JSON.parse(event.body)
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: 'http://localhost:8888',
+        redirectUri: 'https://related-artist-highlight.netlify.app/',
         clientId: process.env.SPOTIFY_ID, 
         clientSecret: process.env.SPOTIFY_SECRET, 
         refreshToken: bodyData.refreshToken

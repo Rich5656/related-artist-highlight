@@ -5,7 +5,7 @@ const handler = async (event) => {
     // console.log(event);
     const code = event.queryStringParameters.code;
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: 'http://localhost:8888', // change to netlify adress for set up
+        redirectUri: 'https://related-artist-highlight.netlify.app/', // change to netlify adress for set up
         clientId: process.env.SPOTIFY_ID, 
         clientSecret: process.env.SPOTIFY_SECRET, 
     });
