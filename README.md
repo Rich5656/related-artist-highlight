@@ -6,8 +6,8 @@ Related Artist Highlight is an application built with React.js that is __*design
 ![GIF Demo](https://github.com/Rich5656/related-artist-highlight/blob/main/related-artist-highlight-demo.gif)
 
 ## Version Notes
--__Main Branch__ This is the first version that I built that uses Express.js for the back end.
--__Netlify Version__ This is the version that is running on the deployed netlify site. The original back end is written in Netlify functions for this version to manage all API calls to Spotify.
+- __Main Branch__ This is the first version that I built that uses Express.js for the back end.
+- __Netlify Version__ This is the version that is running on the deployed netlify site. The original back end is written in Netlify functions for this version to manage all API calls to Spotify.
 
 ## Functionality :wrench:
 - __OAuth:__ This app uses a redirect URI to allow users to securely log in to their Shopify accounts for authentication, and then redirects them back to the application with access granted to the requested scopes (only their most listened to artists for this app).
