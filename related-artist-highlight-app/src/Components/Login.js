@@ -10,7 +10,7 @@ export const Login = () => {
           <h1 className='text-center pt-5 mb-0' >Welcome to Related Artists Highlights</h1>
         <div className='d-flex justify-content-center align-items-center'>
             <p className='text-center m-5 w-50' style={{fontSize: '120%'}}>Discover some lesser-known artist that are similar to your favorites! You can explore some of the automatically-generated higlights below
-            (based on your current favorite artists), or search for reccomendations of any artist of your choice.
+            (based on your current favorite artists), or search for recommendations of any artist of your choice.
             </p>
         </div>
         <div className='d-flex justify-content-center align-items-center pb-5'>

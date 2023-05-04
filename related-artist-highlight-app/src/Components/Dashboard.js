@@ -95,7 +95,7 @@ export const Dashboard = ({ code }) => {
                     <div>   
                         <div className='d-flex text-center justify-content-center align-items-center'>
                                 <p className='m-5 w-90 introduction-paragraph fade-in'>Discover some lesser-known artist that are similar to your favorites! You can explore some of the automatically-generated higlights below
-                                (based on your current favorite artists), or search for reccomendations of any artist of your choice.
+                                (based on your current favorite artists), or search for recommendations of any artist of your choice.
                                 </p>
                         </div>  
                         <AutoRecomendations usersTopArtists={usersTopArtists} accessToken={accessToken} />
