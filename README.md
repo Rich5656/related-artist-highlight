@@ -5,6 +5,10 @@ Related Artist Highlight is an application built with React.js that is __*design
 ## Demo :movie_camera:
 ![GIF Demo](https://github.com/Rich5656/related-artist-highlight/blob/main/related-artist-highlight-demo.gif)
 
+## Version Notes
+__Main Branch__ This is the first version that I built that uses Express.js for the back end.
+__Netlify Version__ This is the version that is running on the deployed netlify site. The original back end is written in Netlify functions for this version to manage all API calls to Spotify.
+
 ## Functionality :wrench:
 - __OAuth:__ This app uses a redirect URI to allow users to securely log in to their Shopify accounts for authentication, and then redirects them back to the application with access granted to the requested scopes (only their most listened to artists for this app).
 - __Automated Recommendations:__ When users log in through the Spotify redirect URI, the application will look at what the users top 3 artists are before making further API requests to the Spotify API's related-artists endpoint. The list of related artists is then filtered down to __*only artists that have a popularity rating of 50 or lower.*__ This measure ensures that only lesser-known artists are getting highlighted by the application. One related artist is selected at random from this filtered list and displayed automatically after the user logs in.
