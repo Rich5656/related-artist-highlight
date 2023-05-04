@@ -5,7 +5,6 @@ import { AutoRecomendations } from './AutoRecomendations';
 import { Header } from './Header';
 import { AritstsRelatedToSearch } from './AritstsRelatedToSearch';
 import axios from 'axios';
-import Pulse from 'react-reveal/Pulse';
 
 export const Dashboard = ({ code }) => {
     // state compnoents
@@ -80,20 +79,18 @@ export const Dashboard = ({ code }) => {
                 <div className='d-flex main-style w-75 justify-content-center align-items-center'>
                     <div>   
                         <div className='d-flex text-center justify-content-center align-items-center'>
-                            <Pulse>
-                                <p className='m-5 w-90 introduction-paragraph'>Discover some lesser-known artist that are similar to your favorites! You can explore some of the automatically-generated higlights below
-                                (based on your current favorite artists), or search for reccomendations of any artist of your choice.
+                                <p className='m-5 w-90 introduction-paragraph fade-in'>Discover some lesser-known artist that are similar to your favorites! You can explore some of the automatically-generated higlights below
+                                (based on your current favorite artists), or search recommendations for any artist of your choice.
                                 </p>
-                            </Pulse>
                         </div>  
                         <AutoRecomendations usersTopArtists={usersTopArtists} accessToken={accessToken} />
-                        <h3>Search Results:</h3>
+                        <h3 className='fade-in'>Search Results:</h3>
                         {
                         returnedSearchArists.length !== 0 ? 
                         // render the display when serach results have been returned
                         <AritstsRelatedToSearch returnedSearchArists={returnedSearchArists}/> :
                         // else render text advising use of search functionality 
-                        <h5 className='text-center p-3'>Search an artist and checkout some artist that are related!</h5>
+                        <h5 className='text-center p-3 fade-in'>Search an artist and checkout some artist that are related!</h5>
                         } 
                         <Footer/>
                     </div>
