@@ -31,19 +31,4 @@ exports.handler = async (event) => {
             body: JSON.stringify({err})
         }
     }
-    // spotifyApi.searchArtists(artistSearch)
-    //     .then(data => data.body.artists.items)
-    //     .then(artistsArray => {
-    //         return artistsArray.map(artistItem => {
-    //             return {
-    //                 name: artistItem.name,
-    //                 id: artistItem.id
-    //             }
-    //         })
-    //     })
-    //     .then(serachResults => res.json({ topFive: serachResults.slice(0,5) }))
-    //     .catch(err => {
-    //         console.log(err);
-    //         res.sendStatus(400);
-    //     });
 }

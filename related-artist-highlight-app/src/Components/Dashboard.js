@@ -80,6 +80,8 @@ export const Dashboard = ({ code }) => {
             },
             body: JSON.stringify({id , accessToken})
         })
+            .then(res => res.json())
+            .then(res => setReturnedSearchArtists(res.relatedArtistsResults))
         // axios.post('http://localhost:3001/relatedArtists', { id, accessToken })
         //     .then(res => setReturnedSearchArtists(res.data.relatedArtistsResults))
         //     .catch(err => console.log(err));
