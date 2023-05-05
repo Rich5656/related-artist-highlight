@@ -34,7 +34,7 @@ So, I decided to make this app to help me search out new artists that I have nev
 
 ## Technologies Used
 
-[![Tech Used](https://skillicons.dev/icons?i=react,express,nodejs,js,html,css,git,github,bootstrap)](https://skillicons.dev)
+[![Tech Used](https://skillicons.dev/icons?i=react,express,nodejs,js,html,css,git,github,bootstrap,netlify)](https://skillicons.dev)
 
 ## Main Takeaways :blue_book:
 
