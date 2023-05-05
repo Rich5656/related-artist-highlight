@@ -1,3 +1,14 @@
+# Note on the live site :exclamation::exclamation::exclamation:
+
+This app is still in development mode with Spotify's develper services. This unfortunately limits the number of users that can use this
+app with their own accounts. If you want to see a live demo of this site you will need to use the following tester account when prompted to log in:
+
+- __User:__ tester@gmail.com
+- __Pass:__ NeverGonnaGiveYouUp
+- [Link to live site](https://related-artist-highlight.netlify.app/)
+
+If you want to use this app with your own Spotify account, reach out to me through the contact form at the bottom of this [page](portfolio-site-here).
+
 # Related Artist Highlight :musical_note:
 
 Related Artist Highlight is an application built with React.js that is __*designed to help users find lesser-known artists that are similar to their current favorites.*__ It allows a user to log in with their Spotify account and immediately get automated recommendations that are related to their most-listened to artists. There is also search functionality that returns lesser-known artists that are related to the artist the user searched.  Each recommendation displays the band's name, a photo, and some of the genres of music that the band is associated with.
@@ -27,6 +38,7 @@ So, I decided to make this app to help me search out new artists that I have nev
 
 ## Main Takeaways :blue_book:
 
-1. __OAuth:__ This was my first time building an app that uses OAuth for authentication. It was interesting to learn how to implement this and see how effective it is to allow this process to be handled by a more sophisticated organization like Spotify, as opposed to trying to authenticate through using my own database and sign-up/sign-in functionality.
-2. __Chaining API Calls:__ Due to the architecture of Spotify's REST API, there was a constant need to chain API calls to get the data that is displayed in this application. Many endpoints rely on having a URI related to an artist to get further data, so I had to become adept at handling the data that was returned from those individual API calls. Handling this properly allowed me to push a condensed JOSN object with all of the needed display data to the front end of the application with a single request.
-3. __Back End For Secure API Calls:__ One of the biggest challenges in this project was setting this application up in a way that allowed for all of my API calls to be made from the back end so no confidential information related to API keys would be accessible or made public. This was a great opportunity for me to get more familiar with using environment variables in Node and using dotenv to read those variables from a .env file. 
+1. __OAuth:__ This was my first time building an app that uses OAuth for authentication. It was interesting to learn how to implement this and see how effective it is to allow this process to be handled by a more sophisticated organization like Spotify, as opposed to trying to authenticate users through my own database and sign-up/sign-in functionality.
+2. __Navigating API Calls:__ Due to the architecture of Spotify's REST API, there was a constant need to make multiple API calls to get the data that is displayed in this application. Many endpoints rely on having a URI related to an artist to get further data, and this required me to become proficient at making API calls within a loop of artist URIs before unpacking the array of promises that was retruned from that loop. Handling this properly allowed me to push only the needed information to the front end and ultimately making the fron end code more readable.
+3. __Back End For Secure API Calls:__ One of the biggest challenges in this project was setting this application up in a way that allowed for all of my API calls to be made from the back end so no confidential information would be accessible or made public. This was a great opportunity for me to get more familiar with using environment variables in Node and using dotenv to read those variables from a .env file. The back end was initially created and tested locally as an Express.js server, but the deployed version of this app has the Express.js server refactored into Netlify Functions to effectively provide the same service. 
+4. __asyn/await vs. .then:__ Netlify functions use async/await when they are implemented. Refactoring the back end of this app into Netlify Functions allowed me to see a great example of when to use async/await and why it is helpful in a case like this to suspend the execution of the code until the promise is fulfilled. With the functions used here, it is impossible to proceed with the rest of the code until the promise is returned, or else the function will fail enitrely. On the other hand, .then was helpful on the front end of this app when the rest if the page needed to be rendered even if the promise had not been fulfilled yet.
