@@ -4,7 +4,7 @@ This app is still in development mode with Spotify's develper services. This unf
 app with their own accounts. If you want to see a live demo of this site you will need to use the following tester account when prompted to log in:
 
 - __User:__ anothermark05@gmail.com
-- __Pass:__ NeverGonnaGiveYouUp
+- __Pass:__ B0yzMwl1$
 - [Link to live site](https://related-artist-highlight.netlify.app/)
 
 If you want to use this app with your own Spotify account, reach out to me through the contact form at the bottom of this [page](portfolio-site-here).
