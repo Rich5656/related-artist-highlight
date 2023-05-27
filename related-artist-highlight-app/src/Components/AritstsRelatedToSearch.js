@@ -2,7 +2,6 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-// import Fade from 'react-reveal/Fade';
 
 export const AritstsRelatedToSearch = ({ returnedSearchArists }) => {
     // function for rendering the three related artists cards
@@ -28,9 +27,9 @@ export const AritstsRelatedToSearch = ({ returnedSearchArists }) => {
     return (
         <>
             <div className='p-3 m-3 text-center align-items-center justify-content-center'>
-                    <Row className='justify-content-center fade-in-from-right'>
-                        {renderRetrunedSearchAritsts()}
-                    </Row>
+                <Row className='justify-content-center fade-in-from-right'>
+                    {renderRetrunedSearchAritsts()}
+                </Row>
                 <p className='m-4 p-3 search-information-text'>Search results are randomly generated from 7 related artists with the lowest popularity ratings. If you serach the same artist again
                     you will likely get some different recommendations.
                 </p>
