@@ -6,23 +6,23 @@ import Card from 'react-bootstrap/Card';
 export const AritstsRelatedToSearch = ({ returnedSearchArists }) => {
     // function for rendering the three related artists cards
     const renderRetrunedSearchAritsts = () => {
-    return returnedSearchArists.map((artistItem, index) => {
+        return returnedSearchArists.map((artistItem, index) => {
         const genresArray = [...artistItem.genres];
-        return (
-                <Col className='d-flex align-items-center col-12 col-md-4' key={'col' + artistItem.name}>
-                    <Card className='card-style w-100 h-90 mb-4 justify-content-center'> 
-                        <Card.Title  key={'cardTitle' + artistItem.name} className='text-center m-3'>
-                            {artistItem.name}
-                        </Card.Title>
-                        <Card.Img key={'cardImg' + artistItem.name} className='p-4 p-md-3' src={artistItem.images[0].url} alt='album art'/>
-                        <Card.Footer key={'cardFoot' + artistItem.name} className='m-2 p-0 pt-2 card-footer-formatting'>
-                            Genres: {genresArray.splice(0, 4).join(', ')}
-                        </Card.Footer>
-                    </Card>
-                </Col>
-        )
-    })
-  }
+            return (
+                        <Col className='d-flex align-items-center col-12 col-md-4' key={'col' + artistItem.name}>
+                            <Card className='card-style w-100 h-90 mb-4 justify-content-center'> 
+                                <Card.Title  key={'cardTitle' + artistItem.name} className='text-center m-3'>
+                                    {artistItem.name}
+                                </Card.Title>
+                                <Card.Img key={'cardImg' + artistItem.name} className='p-4 p-md-3' src={artistItem.images[0].url} alt='album art'/>
+                                <Card.Footer key={'cardFoot' + artistItem.name} className='m-2 p-0 pt-2 card-footer-formatting'>
+                                    Genres: {genresArray.splice(0, 4).join(', ')}
+                                </Card.Footer>
+                            </Card>
+                        </Col>
+                )
+            })
+        }
 
     return (
         <>
